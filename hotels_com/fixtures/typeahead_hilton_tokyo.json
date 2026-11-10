@@ -1,0 +1,230 @@
+{
+ "q": "hilton tokyo",
+ "rid": "1f090c2d-3d6c-423d-a003-49a902907a17",
+ "rc": "OK",
+ "sr": [
+  {
+   "@type": "gaiaHotelResult",
+   "index": "0",
+   "hotelId": "22597",
+   "type": "HOTEL",
+   "regionNames": {
+    "fullName": "Hilton Tokyo, Tokyo, Tokyo Prefecture, Japan",
+    "shortName": "Hilton Tokyo",
+    "displayName": "<B>Hilton</B> <B>Tokyo</B>, <B>Tokyo</B>, <B>Tokyo</B> Prefecture, Japan",
+    "lastSearchName": "Hilton Tokyo"
+   },
+   "essId": {
+    "sourceName": "LCM",
+    "sourceId": "22597"
+   },
+   "coordinates": {
+    "lat": "35.692585",
+    "long": "139.691072"
+   },
+   "hierarchyInfo": {
+    "country": {
+     "isoCode3": "JPN"
+    },
+    "airport": {
+     "airportCode": "TYO",
+     "airportId": "6139132",
+     "metrocode": "TYO",
+     "multicity": "179900"
+    }
+   },
+   "cityId": "3593",
+   "hotelAddress": {
+    "street": "6-6-2, Nishi-Shinjuku, Shinjuku-ku",
+    "city": "Tokyo",
+    "province": "Tokyo-to"
+   },
+   "winnerReasoning": "EXACT_MATCH"
+  },
+  {
+   "@type": "gaiaHotelResult",
+   "index": "1",
+   "hotelId": "181856",
+   "type": "HOTEL",
+   "regionNames": {
+    "fullName": "Hilton Tokyo Bay, Urayasu, Chiba Prefecture, Japan",
+    "shortName": "Hilton Tokyo Bay",
+    "displayName": "<B>Hilton</B> <B>Tokyo</B> Bay, Urayasu, Chiba Prefecture, Japan",
+    "lastSearchName": "Hilton Tokyo Bay"
+   },
+   "essId": {
+    "sourceName": "LCM",
+    "sourceId": "181856"
+   },
+   "coordinates": {
+    "lat": "35.627076",
+    "long": "139.873983"
+   },
+   "hierarchyInfo": {
+    "country": {
+     "isoCode3": "JPN"
+    },
+    "airport": {
+     "airportCode": "TYO",
+     "airportId": "6139132",
+     "metrocode": "TYO",
+     "multicity": "179900"
+    }
+   },
+   "cityId": "10172",
+   "hotelAddress": {
+    "street": "1-8 Maihama",
+    "city": "Urayasu",
+    "province": "Chiba-ken"
+   }
+  },
+  {
+   "@type": "gaiaHotelResult",
+   "index": "2",
+   "hotelId": "34540",
+   "type": "HOTEL",
+   "regionNames": {
+    "fullName": "Hilton Tokyo Odaiba, Tokyo, Tokyo Prefecture, Japan",
+    "shortName": "Hilton Tokyo Odaiba",
+    "displayName": "<B>Hilton</B> <B>Tokyo</B> Odaiba, <B>Tokyo</B>, <B>Tokyo</B> Prefecture, Japan",
+    "lastSearchName": "Hilton Tokyo Odaiba"
+   },
+   "essId": {
+    "sourceName": "LCM",
+    "sourceId": "34540"
+   },
+   "coordinates": {
+    "lat": "35.62626",
+    "long": "139.770741"
+   },
+   "hierarchyInfo": {
+    "country": {
+     "isoCode3": "JPN"
+    },
+    "airport": {
+     "airportCode": "TYO",
+     "airportId": "6139132",
+     "metrocode": "TYO",
+     "multicity": "179900"
+    }
+   },
+   "cityId": "3593",
+   "hotelAddress": {
+    "street": "1-9-1 Daiba, Minato-ku",
+    "city": "Tokyo",
+    "province": ""
+   }
+  },
+  {
+   "@type": "gaiaHotelResult",
+   "index": "3",
+   "hotelId": "442954",
+   "type": "HOTEL",
+   "regionNames": {
+    "fullName": "Hilton Tokyo Narita Airport, Narita, Chiba Prefecture, Japan",
+    "shortName": "Hilton Tokyo Narita Airport",
+    "displayName": "<B>Hilton</B> <B>Tokyo</B> Narita Airport, Narita, Chiba Prefecture, Japan",
+    "lastSearchName": "Hilton Tokyo Narita Airport"
+   },
+   "essId": {
+    "sourceName": "LCM",
+    "sourceId": "442954"
+   },
+   "coordinates": {
+    "lat": "35.784531",
+    "long": "140.354183"
+   },
+   "hierarchyInfo": {
+    "country": {
+     "isoCode3": "JPN"
+    },
+    "airport": {
+     "airportCode": "TYO",
+     "airportId": "6139132",
+     "metrocode": "TYO",
+     "multicity": "179900"
+    }
+   },
+   "cityId": "8900",
+   "hotelAddress": {
+    "street": "456 Kosuge",
+    "city": "Narita",
+    "province": "Chiba-ken"
+   }
+  },
+  {
+   "@type": "gaiaHotelResult",
+   "index": "4",
+   "hotelId": "3503050",
+   "type": "HOTEL",
+   "regionNames": {
+    "fullName": "Hilltop Hotel, Tokyo, Tokyo Prefecture, Japan",
+    "shortName": "Hilltop Hotel",
+    "displayName": "Hilltop Hotel, <B>Tokyo</B>, <B>Tokyo</B> Prefecture, Japan",
+    "lastSearchName": "Hilltop Hotel"
+   },
+   "essId": {
+    "sourceName": "LCM",
+    "sourceId": "3503050"
+   },
+   "coordinates": {
+    "lat": "35.69809",
+    "long": "139.76131"
+   },
+   "hierarchyInfo": {
+    "country": {
+     "isoCode3": "JPN"
+    },
+    "airport": {
+     "airportCode": "TYO",
+     "airportId": "6139132",
+     "metrocode": "TYO",
+     "multicity": "179900"
+    }
+   },
+   "cityId": "3593",
+   "hotelAddress": {
+    "street": "1-1 Surugadai Kanda Chiyoda-ku",
+    "city": "Tokyo",
+    "province": "Tokyo-to"
+   }
+  },
+  {
+   "@type": "gaiaHotelResult",
+   "index": "5",
+   "hotelId": "25252219",
+   "type": "HOTEL",
+   "regionNames": {
+    "fullName": "DoubleTree by Hilton Tokyo Ariake, Tokyo, Tokyo Prefecture, Japan",
+    "shortName": "DoubleTree by Hilton Tokyo Ariake",
+    "displayName": "DoubleTree by <B>Hilton</B> <B>Tokyo</B> Ariake, <B>Tokyo</B>, <B>Tokyo</B> Prefecture, Japan",
+    "lastSearchName": "DoubleTree by Hilton Tokyo Ariake"
+   },
+   "essId": {
+    "sourceName": "LCM",
+    "sourceId": "25252219"
+   },
+   "coordinates": {
+    "lat": "35.633863",
+    "long": "139.793048"
+   },
+   "hierarchyInfo": {
+    "country": {
+     "isoCode3": "JPN"
+    },
+    "airport": {
+     "airportCode": "TYO",
+     "airportId": "6139132",
+     "metrocode": "TYO",
+     "multicity": "179900"
+    }
+   },
+   "cityId": "3593",
+   "hotelAddress": {
+    "street": "3-7-3 Ariake",
+    "city": "Tokyo",
+    "province": "Tokyo"
+   }
+  }
+ ]
+}

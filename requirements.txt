@@ -1,0 +1,7 @@
+bottle
+cheroot
+# 0.16.x ships the chrome150 and safari184_ios fingerprints hotels.com
+# accepts; 0.17.0 (Oct 2026) has its TLS handshake reset by some home ISPs.
+curl_cffi>=0.16,<0.17
+marshmallow
+pytest

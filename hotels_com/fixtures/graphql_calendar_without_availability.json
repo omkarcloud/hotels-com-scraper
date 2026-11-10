@@ -1,0 +1,256 @@
+{
+ "data": {
+  "propertyRatesDateSelector": {
+   "configuration": {
+    "currentDate": {
+     "day": 7,
+     "month": 11,
+     "year": 2026
+    },
+    "beginDate": {
+     "day": 7,
+     "month": 11,
+     "year": 2026
+    },
+    "endDate": {
+     "day": 5,
+     "month": 7,
+     "year": 2027
+    },
+    "availableByDefault": null,
+    "calendarTemplateType": "WITHOUT_AVAILABILITY",
+    "tnlFields": null
+   },
+   "days": [],
+   "disclaimer": {
+    "value": ""
+   },
+   "submitButtonLabel": "Check availability",
+   "analyticsPayloads": [
+    {
+     "eventName": "calendar.presented",
+     "payload": "{\"metadata\":{\"packer_version\":\"1.0.1\"},\"events\":{\"calendar.presented\":{\"v1\":{\"event_data\":{\"event\":{\"event_name\":\"calendar.presented\",\"event_version\":\"1.0.0\",\"event_category\":\"calendar\",\"event_type\":\"Impression\"},\"experience\":{\"page_name\":\"Product Details\",\"page_name_detailed\":\"Product Details Lodging Dated\",\"page_product_line\":\"Lodging\"},\"product_list\":[{\"pricing\":{\"currency_displayed\":\"CNY\"}}]}}}}}"
+    },
+    {
+     "eventName": "calendar.opened",
+     "payload": "{\"metadata\":{\"packer_version\":\"1.0.1\"},\"events\":{\"calendar.opened\":{\"v1\":{\"event_data\":{\"event\":{\"event_name\":\"calendar.opened\",\"event_version\":\"1.0.0\",\"event_category\":\"calendar\",\"event_type\":\"Interaction\"},\"experience\":{\"page_name\":\"Product Details\",\"page_name_detailed\":\"Product Details Lodging Dated\",\"page_product_line\":\"Lodging\"}}}}}}"
+    },
+    {
+     "eventName": "calendar.closed",
+     "payload": "{\"metadata\":{\"packer_version\":\"1.0.1\"},\"events\":{\"calendar.closed\":{\"v1\":{\"event_data\":{\"event\":{\"event_name\":\"calendar.closed\",\"event_version\":\"1.0.0\",\"event_category\":\"calendar\",\"event_type\":\"Interaction\"},\"experience\":{\"page_name\":\"Product Details\",\"page_name_detailed\":\"Product Details Lodging Dated\",\"page_product_line\":\"Lodging\"}}}}}}"
+    },
+    {
+     "eventName": "calendar_new_dates.closed",
+     "payload": "{\"metadata\":{\"packer_version\":\"1.0.1\"},\"events\":{\"calendar_new_dates.closed\":{\"v1\":{\"event_data\":{\"event\":{\"event_name\":\"calendar_new_dates.closed\",\"event_version\":\"1.0.0\",\"event_category\":\"calendar\",\"event_type\":\"Interaction\"},\"experience\":{\"page_name\":\"Product Details\",\"page_name_detailed\":\"Product Details Lodging Dated\",\"page_product_line\":\"Lodging\"}}}}}}"
+    },
+    {
+     "eventName": "calendar_previous_month.selected",
+     "payload": "{\"metadata\":{\"packer_version\":\"1.0.1\"},\"events\":{\"calendar_previous_month.selected\":{\"v1\":{\"event_data\":{\"event\":{\"event_name\":\"calendar_previous_month.selected\",\"event_version\":\"1.0.0\",\"event_category\":\"calendar\",\"event_type\":\"Interaction\"},\"experience\":{\"page_name\":\"Product Details\",\"page_name_detailed\":\"Product Details Lodging Dated\",\"page_product_line\":\"Lodging\"}}}}}}"
+    },
+    {
+     "eventName": "calendar_next_month.selected",
+     "payload": "{\"metadata\":{\"packer_version\":\"1.0.1\"},\"events\":{\"calendar_next_month.selected\":{\"v1\":{\"event_data\":{\"event\":{\"event_name\":\"calendar_next_month.selected\",\"event_version\":\"1.0.0\",\"event_category\":\"calendar\",\"event_type\":\"Interaction\"},\"experience\":{\"page_name\":\"Product Details\",\"page_name_detailed\":\"Product Details Lodging Dated\",\"page_product_line\":\"Lodging\"}}}}}}"
+    },
+    {
+     "eventName": "calendar_check_in.selected",
+     "payload": "{\"metadata\":{\"packer_version\":\"1.0.1\"},\"events\":{\"calendar_check_in.selected\":{\"v1\":{\"event_data\":{\"event\":{\"event_name\":\"calendar_check_in.selected\",\"event_version\":\"1.0.0\",\"event_category\":\"calendar\",\"event_type\":\"Interaction\"},\"experience\":{\"page_name\":\"Product Details\",\"page_name_detailed\":\"Product Details Lodging Dated\",\"page_product_line\":\"Lodging\"}}}}}}"
+    },
+    {
+     "eventName": "calendar_check_out.selected",
+     "payload": "{\"metadata\":{\"packer_version\":\"1.0.1\"},\"events\":{\"calendar_check_out.selected\":{\"v1\":{\"event_data\":{\"event\":{\"event_name\":\"calendar_check_out.selected\",\"event_version\":\"1.0.0\",\"event_category\":\"calendar\",\"event_type\":\"Interaction\"},\"experience\":{\"page_name\":\"Product Details\",\"page_name_detailed\":\"Product Details Lodging Dated\",\"page_product_line\":\"Lodging\"}}}}}}"
+    },
+    {
+     "eventName": "calendar_rates.presented",
+     "payload": "{\"metadata\":{\"packer_version\":\"1.0.1\"},\"events\":{\"calendar_rates.presented\":{\"v1\":{\"event_data\":{\"event\":{\"event_name\":\"calendar_rates.presented\",\"event_version\":\"1.0.0\",\"event_category\":\"calendar\",\"event_type\":\"Impression\"},\"experience\":{\"page_name\":\"Product Details\",\"page_name_detailed\":\"Product Details Lodging Dated\",\"page_product_line\":\"Lodging\"}}}}}}"
+    }
+   ],
+   "validationMessage": "Maximum 28 nights"
+  }
+ },
+ "extensions": {
+  "trace": {
+   "Trace-ID": "7a1b0524-7bea-4656-926a-6dc1b83d4a6a"
+  },
+  "analytics": [
+   {
+    "traceId": "7a1b0524-7bea-4656-926a-6dc1b83d4a6a",
+    "creationTimestamp": 1794038993521,
+    "context": {
+     "pageIdentity": {
+      "lineOfBusiness": "H",
+      "pageIdentifier": "page.Hotels.Infosite.Information",
+      "funnelLocation": 20
+     },
+     "executeXdid": true,
+     "tealiumAccountDetailsPWA": {
+      "tealiumAccountName": "TEALIUM_OFF",
+      "tealiumProfileName": "TEALIUM_OFF"
+     },
+     "beaconOffConfig": {
+      "settings": {
+       "adobeSuiteAccount": "expediaglobaluserdev",
+       "sendToAdobeClientSide": false,
+       "sendToAdobeServerSide": false,
+       "sendToS3": false,
+       "adobeSuiteUrl": "http://expedia.112.2o7.net/b/ss/expediaglobaluserdev/6"
+      },
+      "rulesMatched": "ALL_BEACON_OFF",
+      "bucketing": {
+       "experimentInstance": "",
+       "bucketValue": 2,
+       "experimentId": ""
+      },
+      "error": ""
+     },
+     "tealiumAccountDetails": {
+      "tealiumAccountName": "TEALIUM_OFF",
+      "tealiumProfileName": "TEALIUM_OFF"
+     },
+     "entryPageView": false,
+     "beaconEnabled": true,
+     "newVisit": false
+    },
+    "tealiumUtagData": {
+     "lineOfBusiness": "hotels",
+     "siteCountryCode": "CN",
+     "tpid": 3208,
+     "pageInfo": {
+      "lineOfBusiness": "hotels",
+      "requestURL": "http://www.hotels.cn/graphql",
+      "funnelLocation": "SEARCH_RESULTS",
+      "currency": "CNY",
+      "language": "en",
+      "pageName": "page.Hotels.Infosite.Information",
+      "xLineOfBusiness": "HOTEL"
+     },
+     "tc_vars": {
+      "privacy_gdpr_consent": true,
+      "identifiers_session_id": "311efa9b-3048-356e-9dfd-2ac5b866d3ba",
+      "point_of_sale_eg_pos_id": "HCOM_CN",
+      "marketing_sslt_attributed_marketing_code": "DIRECT.WEB_NULL_REFERRAL",
+      "language": "en",
+      "search_request_gaia_id": "Unknown",
+      "point_of_sale_eg_brand_name": "hotels",
+      "device_information_device_type": "MOBILE",
+      "identifiers_tpid": 3208,
+      "timestamps_received_at": "2026-11-07T08:09:53.505232799Z",
+      "identifiers_site_id": 300000042,
+      "host": "www.hotels.cn",
+      "point_of_sale": "Unknown",
+      "is_native_app": false,
+      "is_uis_prime_sourced": true,
+      "is_EU_POS": false,
+      "event_page_name_detailed": "page.Hotels.Infosite.Information",
+      "default_domain": "www.hotels.cn",
+      "point_of_sale_site_currency_code": "CNY",
+      "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1",
+      "privacy_ccpa_consent": true,
+      "identifiers_device_user_agent_id": "eefef40c-d4ce-4f9c-9ba7-1956dda1d093",
+      "marketing_sslt_attributed_platform_entryId": "476179f8-5e12-440c-b460-335320f36186",
+      "isNativeOneCKO": false,
+      "point_of_sale_locale": "CN",
+      "identifiers_event_trace_id": "7a1b05247bea4656926a6dc1b83d4a6a",
+      "event_page_funnel_location": "SEARCH_RESULTS",
+      "referrer_url_encoded": "https%3A%2F%2Fwww.hotels.cn%2Fen%2Fho434012%2F",
+      "booking_product_line": "H",
+      "marketing_same_session_marketing_code": "direct",
+      "marketing_latest_marketing_code": "DIRECT.WEB_NULL_REFERRAL",
+      "event_page_product_line": "HOTEL",
+      "request_request_url": "http://www.hotels.cn/graphql",
+      "environment": "prod",
+      "line_of_business": "hotels",
+      "is_native_app_onecheckout": false,
+      "event_page_name": "page.Hotels.Infosite.Information",
+      "domain": "HOTEL",
+      "marketing_latest_platform_entry_id": "476179f8-5e12-440c-b460-335320f36186",
+      "referrer_url": "https://www.hotels.cn/en/ho434012/"
+     },
+     "siteName": "www.hotels.cn",
+     "language": "en",
+     "locale": "en_US",
+     "pageName": "page.Hotels.Infosite.Information",
+     "xLineOfBusiness": "HOTEL",
+     "Geo": {
+      "country": "IN",
+      "city": "NEW DELHI",
+      "latitude": 28.6327,
+      "state": "DL",
+      "longitude": 77.2198
+     },
+     "eapid": 42,
+     "domain": "HOTEL",
+     "funnelLocation": "SEARCH_RESULTS",
+     "context": {
+      "traceId": "7a1b05247bea4656926a6dc1b83d4a6a",
+      "site": {
+       "companyCode": "10113",
+       "tpid": 3208,
+       "eapid": 42,
+       "brandId": "hotels",
+       "siteId": 300000042,
+       "siteName": "www.hotels.cn",
+       "jurisdictionCode": "CHN",
+       "managementUnitCode": "2105",
+       "defaultCountry": "CN"
+      },
+      "privacyContext": {
+       "canTrack": true,
+       "canSell": true,
+       "optInPrivacySelection": {
+        "yesSelected": false,
+        "isSet": false
+       },
+       "dataProtectionGuideline": "GDPR"
+      },
+      "requestId": "7a1b0524-7bea-4656-926a-6dc1b83d4a6a",
+      "hopScotchSessionId": "311efa9b-3048-356e-9dfd-2ac5b866d3ba",
+      "clientInfo": {
+       "deviceCharacteristics": {
+        "brandName": "Apple",
+        "deviceOs": "iPhone OS",
+        "mobileBrowserVersion": "18.0",
+        "resolutionHeight": 1920,
+        "mobile": true,
+        "deviceOsVersion": "18.0",
+        "mobileBrowser": "Safari",
+        "physicalScreenHeight": 89,
+        "modelName": "iPhone",
+        "tablet": false,
+        "resolutionWidth": 1080,
+        "wirelessDevice": false,
+        "physicalScreenWidth": 50
+       },
+       "os": "iPhone OS",
+       "ipAddress": "49.36.137.***",
+       "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1",
+       "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1",
+       "requestMadeByBot": false,
+       "coords": {
+        "country": "IN",
+        "city": "NEW DELHI",
+        "latitude": 28.6327,
+        "state": "DL",
+        "longitude": 77.2198
+       }
+      },
+      "sessionId": "311efa9b-3048-356e-9dfd-2ac5b866d3ba",
+      "user": {
+       "guid": "eefef40c-d4ce-4f9c-9ba7-1956dda1d093"
+      }
+     },
+     "siteId": 300000042,
+     "guid": "eefef40c-d4ce-4f9c-9ba7-1956dda1d093",
+     "tc_context": {
+      "tcContainerUrl": "https://cdn.tagcommander.com/6035/tc_hcom_prod.js",
+      "enabled": true
+     },
+     "brand": "hotels",
+     "currencyCode": "CNY",
+     "lobDomain": "HOTEL"
+    },
+    "version": "11.0.0",
+    "applicationName": "experience-api-lodging-availability"
+   }
+  ]
+ }
+}

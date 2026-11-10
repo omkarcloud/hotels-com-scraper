@@ -1,0 +1,880 @@
+{
+ "data": {
+  "propertyInfo": {
+   "id": "22597",
+   "reviewInfo": {
+    "summary": {
+     "totalCount": {
+      "raw": 1000.0,
+      "formatted": "1,000"
+     },
+     "averageOverallRating": {
+      "raw": 8.800000190734863,
+      "formatted": "8.8"
+     },
+     "superlative": "Excellent",
+     "paginateAction": {
+      "text": "More reviews"
+     },
+     "reviewSummaryDetails": [
+      {
+       "label": "Cleanliness",
+       "ratingPercentage": 92,
+       "formattedRatingOutOfMax": "9.2/10"
+      },
+      {
+       "label": "Location",
+       "ratingPercentage": 78,
+       "formattedRatingOutOfMax": "7.8/10"
+      },
+      {
+       "label": "Staff & service",
+       "ratingPercentage": 90,
+       "formattedRatingOutOfMax": "9.0/10"
+      },
+      {
+       "label": "Property conditions & facilities",
+       "ratingPercentage": 88,
+       "formattedRatingOutOfMax": "8.8/10"
+      }
+     ],
+     "propertyReviewCountDetails": {
+      "shortDescription": "See all 1,000 reviews"
+     }
+    },
+    "reviews": [
+     {
+      "id": "6abdb23121db461d59abebfd",
+      "superlative": "Very good",
+      "locale": "ko_KR",
+      "title": "",
+      "brandType": null,
+      "disclaimer": "Verified review",
+      "text": "",
+      "submissionTimeLocalized": "Oct 21, 2026",
+      "stayDuration": "Jongwoong, 3-night trip",
+      "travelers": [],
+      "reviewScoreWithDescription": {
+       "label": "8 out of 10 Very good",
+       "value": "8/10 Very good"
+      },
+      "reviewAuthorAttribution": {
+       "text": "Jongwoong"
+      },
+      "managementResponses": [],
+      "photos": [],
+      "themes": null,
+      "reviewInteractionSections": [
+       {
+        "primaryDisplayString": "See more",
+        "reviewInteractionType": "REVIEW_EXPAND_LABEL"
+       },
+       {
+        "primaryDisplayString": "See less",
+        "reviewInteractionType": "REVIEW_COLLAPSE_LABEL"
+       }
+      ],
+      "propertyReviewSource": null,
+      "translationInfo": null
+     },
+     {
+      "id": "6abb277f9bac720954a027d1",
+      "superlative": "Exceptional",
+      "locale": "en_US",
+      "title": "",
+      "brandType": null,
+      "disclaimer": "Verified review",
+      "text": "",
+      "submissionTimeLocalized": "Oct 19, 2026",
+      "stayDuration": "Jason, 6-night trip",
+      "travelers": [],
+      "reviewScoreWithDescription": {
+       "label": "10 out of 10 Exceptional",
+       "value": "10/10 Exceptional"
+      },
+      "reviewAuthorAttribution": {
+       "text": "Jason"
+      },
+      "managementResponses": [],
+      "photos": [],
+      "themes": null,
+      "reviewInteractionSections": [
+       {
+        "primaryDisplayString": "See more",
+        "reviewInteractionType": "REVIEW_EXPAND_LABEL"
+       },
+       {
+        "primaryDisplayString": "See less",
+        "reviewInteractionType": "REVIEW_COLLAPSE_LABEL"
+       }
+      ],
+      "propertyReviewSource": null,
+      "translationInfo": null
+     },
+     {
+      "id": "6ad48015933dca482ddc0a38",
+      "superlative": "Exceptional",
+      "locale": "ko_KR",
+      "title": "",
+      "brandType": null,
+      "disclaimer": "Verified review",
+      "text": "\uadfc\ucc98 \uacf5\uc6d0\uc788\uace0 \uc601\uc5b4\ub418\uace0 \ub118 \uc7ac\ubc0c\uc74c \uc870\uc2dd\uc740 \uba39\uc744\uac8c \ubcc4\ub85c \uc5c6\uc74c. \uadfc\ub370.\uc2dc\uc124\ub4e4 \uae54\ub054\ud558\uac8c \uad00\ub9ac \uc798\ub418\uc5b4\uc788\uc5b4\uc11c \ube44\uc9c0\ub2c8\uc2a4 \uc5c5\ubb34\ubcf4\ub294\ub370 \ud3b8\ub9ac",
+      "submissionTimeLocalized": "Oct 18, 2026",
+      "stayDuration": "Yura, 4-night trip",
+      "travelers": [],
+      "reviewScoreWithDescription": {
+       "label": "10 out of 10 Exceptional",
+       "value": "10/10 Exceptional"
+      },
+      "reviewAuthorAttribution": {
+       "text": "Yura"
+      },
+      "managementResponses": [],
+      "photos": [],
+      "themes": null,
+      "reviewInteractionSections": [
+       {
+        "primaryDisplayString": "See more",
+        "reviewInteractionType": "REVIEW_EXPAND_LABEL"
+       },
+       {
+        "primaryDisplayString": "See less",
+        "reviewInteractionType": "REVIEW_COLLAPSE_LABEL"
+       }
+      ],
+      "propertyReviewSource": null,
+      "translationInfo": {
+       "targetLocale": null
+      }
+     },
+     {
+      "id": "6acc79f4a48e654c26e7e741",
+      "superlative": "Exceptional",
+      "locale": "nb_NO",
+      "title": "",
+      "brandType": null,
+      "disclaimer": "Verified review",
+      "text": "Bang for the buck, really great!",
+      "submissionTimeLocalized": "Oct 12, 2026",
+      "stayDuration": "Terje, 8-night trip",
+      "travelers": [],
+      "reviewScoreWithDescription": {
+       "label": "10 out of 10 Exceptional",
+       "value": "10/10 Exceptional"
+      },
+      "reviewAuthorAttribution": {
+       "text": "Terje"
+      },
+      "managementResponses": [
+       {
+        "id": "a406bb31-fbd2-46b6-8520-2b880ede2242",
+        "header": {
+         "text": "Response from Management on Oct 13, 2026"
+        },
+        "response": "Thank you for your generous post and we are glad that you enjoyed your stay at Hilton Tokyo.\nWe're thrilled you felt you got great value for your stay. We strive to offer comfortable rooms, friendly service, and good value, and your feedback confirms we're delivering on that. \nWe look forward to welcoming you back soon for another great stay. \nIf there\u2019s anything we can do to make your next visit even better, please let us know."
+       }
+      ],
+      "photos": [],
+      "themes": null,
+      "reviewInteractionSections": [
+       {
+        "primaryDisplayString": "See more",
+        "reviewInteractionType": "REVIEW_EXPAND_LABEL"
+       },
+       {
+        "primaryDisplayString": "See less",
+        "reviewInteractionType": "REVIEW_COLLAPSE_LABEL"
+       }
+      ],
+      "propertyReviewSource": null,
+      "translationInfo": {
+       "targetLocale": null
+      }
+     },
+     {
+      "id": "6abbb6253723734647a37f12",
+      "superlative": "Exceptional",
+      "locale": "ko_KR",
+      "title": "",
+      "brandType": null,
+      "disclaimer": "Verified review",
+      "text": "So convenient  hotel recommendations!",
+      "submissionTimeLocalized": "Sep 29, 2026",
+      "stayDuration": "HO BEEN, 3-night trip",
+      "travelers": [],
+      "reviewScoreWithDescription": {
+       "label": "10 out of 10 Exceptional",
+       "value": "10/10 Exceptional"
+      },
+      "reviewAuthorAttribution": {
+       "text": "HO BEEN"
+      },
+      "managementResponses": [
+       {
+        "id": "ba97b34a-f043-44b6-a0af-cd2d2e818681",
+        "header": {
+         "text": "Response from Management on Sep 30, 2026"
+        },
+        "response": "Thank you for your generous post and we are glad that you enjoyed your stay at Hilton Tokyo.\nWe're thrilled that you found our recommendations convenient and helpful.\nOur team loves sharing tips to make your stay easy and enjoyable.\nIf there's anything else we can assist with for your next visit, please let us know.\nWe hope to welcome you back soon!"
+       }
+      ],
+      "photos": [],
+      "themes": null,
+      "reviewInteractionSections": [
+       {
+        "primaryDisplayString": "See more",
+        "reviewInteractionType": "REVIEW_EXPAND_LABEL"
+       },
+       {
+        "primaryDisplayString": "See less",
+        "reviewInteractionType": "REVIEW_COLLAPSE_LABEL"
+       }
+      ],
+      "propertyReviewSource": null,
+      "translationInfo": {
+       "targetLocale": null
+      }
+     },
+     {
+      "id": "6a9f500bd7f5e037873bb1d5",
+      "superlative": "Exceptional",
+      "locale": "ko_KR",
+      "title": "",
+      "brandType": null,
+      "disclaimer": "Verified review",
+      "text": "",
+      "submissionTimeLocalized": "Sep 28, 2026",
+      "stayDuration": "Yooni, 1-night trip",
+      "travelers": [],
+      "reviewScoreWithDescription": {
+       "label": "10 out of 10 Exceptional",
+       "value": "10/10 Exceptional"
+      },
+      "reviewAuthorAttribution": {
+       "text": "Yooni"
+      },
+      "managementResponses": [],
+      "photos": [],
+      "themes": null,
+      "reviewInteractionSections": [
+       {
+        "primaryDisplayString": "See more",
+        "reviewInteractionType": "REVIEW_EXPAND_LABEL"
+       },
+       {
+        "primaryDisplayString": "See less",
+        "reviewInteractionType": "REVIEW_COLLAPSE_LABEL"
+       }
+      ],
+      "propertyReviewSource": null,
+      "translationInfo": null
+     },
+     {
+      "id": "6ab3cbb2daaa1648065f7c8f",
+      "superlative": "Exceptional",
+      "locale": "en_US",
+      "title": "",
+      "brandType": null,
+      "disclaimer": "Verified review",
+      "text": "Everything was excellent. Staff very helpful and friendly. Food was spectacular. Will stay again if I return to Japan.",
+      "submissionTimeLocalized": "Sep 28, 2026",
+      "stayDuration": "Bradley, 7-night trip",
+      "travelers": [],
+      "reviewScoreWithDescription": {
+       "label": "10 out of 10 Exceptional",
+       "value": "10/10 Exceptional"
+      },
+      "reviewAuthorAttribution": {
+       "text": "Bradley"
+      },
+      "managementResponses": [
+       {
+        "id": "260c2c4b-939b-4f6a-9aa1-b83607ef017e",
+        "header": {
+         "text": "Response from Management on Sep 30, 2026"
+        },
+        "response": "Thank you for your generous post and we are glad that you enjoyed your stay at Hilton Tokyo.\nWe\u2019re thrilled that everything was excellent, and that our staff were helpful and friendly, with the food meeting your expectations. It means a lot to us.\n\nWe can\u2019t wait to welcome you back the next time your travels bring you to Japan."
+       }
+      ],
+      "photos": [
+       {
+        "url": "https://a.travel-assets.com/ugc/hotel-reviews/6a83ee16-bb9a-4c50-9be0-8a7bce4c64b8-1790555391068.jpg?impolicy=resizecrop&rw=204&ra=fit&q=high",
+        "description": ""
+       },
+       {
+        "url": "https://a.travel-assets.com/ugc/hotel-reviews/6a2ed776-ffe6-45fc-9bf6-450a10467835-1790555391670.jpg?impolicy=resizecrop&rw=204&ra=fit&q=high",
+        "description": ""
+       },
+       {
+        "url": "https://a.travel-assets.com/ugc/hotel-reviews/325a31da-eddc-4d4b-9c22-591570e40f9a-1790555391290.jpg?impolicy=resizecrop&rw=204&ra=fit&q=high",
+        "description": ""
+       }
+      ],
+      "themes": null,
+      "reviewInteractionSections": [
+       {
+        "primaryDisplayString": "See more",
+        "reviewInteractionType": "REVIEW_EXPAND_LABEL"
+       },
+       {
+        "primaryDisplayString": "See less",
+        "reviewInteractionType": "REVIEW_COLLAPSE_LABEL"
+       }
+      ],
+      "propertyReviewSource": null,
+      "translationInfo": null
+     },
+     {
+      "id": "6ab72ae5076ee61d46f164a4",
+      "superlative": "Exceptional",
+      "locale": "ko_KR",
+      "title": "",
+      "brandType": null,
+      "disclaimer": "Verified review",
+      "text": "\ubaa8\ub4e0 \uac83\uc774 \ub9cc\uc871\uc2a4\ub7ec\uc6e0\uc2b5\ub2c8\ub2e4. \ub610 \ubc29\ubb38\ud558\uaca0\uc2b5\ub2c8\ub2e4.",
+      "submissionTimeLocalized": "Sep 26, 2026",
+      "stayDuration": "SOOJIN, 1-night trip",
+      "travelers": [],
+      "reviewScoreWithDescription": {
+       "label": "10 out of 10 Exceptional",
+       "value": "10/10 Exceptional"
+      },
+      "reviewAuthorAttribution": {
+       "text": "SOOJIN"
+      },
+      "managementResponses": [],
+      "photos": [],
+      "themes": null,
+      "reviewInteractionSections": [
+       {
+        "primaryDisplayString": "See more",
+        "reviewInteractionType": "REVIEW_EXPAND_LABEL"
+       },
+       {
+        "primaryDisplayString": "See less",
+        "reviewInteractionType": "REVIEW_COLLAPSE_LABEL"
+       }
+      ],
+      "propertyReviewSource": null,
+      "translationInfo": {
+       "targetLocale": null
+      }
+     },
+     {
+      "id": "6ab3a01ddaaa1648065b97b5",
+      "superlative": "Very good",
+      "locale": "ja_JP",
+      "title": "",
+      "brandType": null,
+      "disclaimer": "Verified review",
+      "text": "\u98a8\u5442\u306e\u4ed5\u5207\u308a\u304c\u3082\u3046\u5c11\u3057\u9577\u3044\u3068\u6e6f\u821f\u304b\u3089\u5916\u306b\u30b7\u30e3\u30ef\u30fc\u306e\u98db\u6cab\u304c\u51fa\u306a\u3044\u3088\u3046\u306b\u306a\u308b\u306e\u3067\u306f\u3068\u601d\u3044\u307e\u3059\u3002",
+      "submissionTimeLocalized": "Sep 23, 2026",
+      "stayDuration": "SHINJI, 1-night trip",
+      "travelers": [],
+      "reviewScoreWithDescription": {
+       "label": "8 out of 10 Very good",
+       "value": "8/10 Very good"
+      },
+      "reviewAuthorAttribution": {
+       "text": "SHINJI"
+      },
+      "managementResponses": [
+       {
+        "id": "b446e218-62db-48a9-b5ff-6b85ee69a3a8",
+        "header": {
+         "text": "Response from Management on Sep 25, 2026"
+        },
+        "response": "\u3053\u306e\u5ea6\u306f\u3001\u6570\u3042\u308b\u30db\u30c6\u30eb\u306e\u4e2d\u304b\u3089\u30d2\u30eb\u30c8\u30f3\u6771\u4eac\u3092\u304a\u9078\u3073\u3044\u305f\u3060\u304d\u307e\u3057\u3066\u3001\u8aa0\u306b\u3042\u308a\u304c\u3068\u3046\u3054\u3056\u3044\u307e\u3057\u305f\u3002\n\u6d74\u5ba4\u306e\u4ed5\u5207\u308a\u306e\u9577\u3055\u306b\u3064\u3044\u3066\u306e\u3054\u6307\u6458\u3001\u771f\u646f\u306b\u53d7\u3051\u6b62\u3081\u3066\u304a\u308a\u307e\u3059\u3002\n\u8a2d\u5099\u62c5\u5f53\u3078\u65e9\u901f\u5171\u6709\u3057\u3001\u4eca\u5f8c\u306e\u6539\u5584\u306e\u53c2\u8003\u3068\u3055\u305b\u3066\u3044\u305f\u3060\u304d\u307e\u3059\u3002\n\u6b21\u56de\u3054\u6ede\u5728\u306e\u969b\u306b\u306f\u3001\u5feb\u9069\u306b\u304a\u904e\u3054\u3057\u3044\u305f\u3060\u3051\u308b\u3088\u3046\u52aa\u529b\u3044\u305f\u3057\u307e\u3059\u3002\n\u4f55\u304b\u4ed6\u306b\u3082\u3054\u8981\u671b\u304c\u3054\u3056\u3044\u307e\u3057\u305f\u3089\u3001\u9060\u616e\u306a\u304f\u304a\u77e5\u3089\u305b\u304f\u3060\u3055\u3044\u3002"
+       }
+      ],
+      "photos": [],
+      "themes": null,
+      "reviewInteractionSections": [
+       {
+        "primaryDisplayString": "See more",
+        "reviewInteractionType": "REVIEW_EXPAND_LABEL"
+       },
+       {
+        "primaryDisplayString": "See less",
+        "reviewInteractionType": "REVIEW_COLLAPSE_LABEL"
+       }
+      ],
+      "propertyReviewSource": null,
+      "translationInfo": {
+       "targetLocale": null
+      }
+     },
+     {
+      "id": "6a76ccf764d8f40dab3503b5",
+      "superlative": "Exceptional",
+      "locale": "de_DE",
+      "title": "",
+      "brandType": null,
+      "disclaimer": "Verified review",
+      "text": "Wir hatten zwei Zimmer, die direkt nebeneinander lagen. Gr\u00f6\u00dfe der Zimmer und Aussicht aus dem 32. Stock waren super. Gym und Pool waren ebenfalls gut. Lage und N\u00e4he zur Metro top.",
+      "submissionTimeLocalized": "Aug 8, 2026",
+      "stayDuration": "Henrik, 2-night trip",
+      "travelers": [],
+      "reviewScoreWithDescription": {
+       "label": "10 out of 10 Exceptional",
+       "value": "10/10 Exceptional"
+      },
+      "reviewAuthorAttribution": {
+       "text": "Henrik"
+      },
+      "managementResponses": [
+       {
+        "id": "8683d63a-3431-483d-a406-b8af8fa8ff12",
+        "header": {
+         "text": "Response from Management on Aug 9, 2026"
+        },
+        "response": "Thank you for your generous post and we are glad that you enjoyed your stay at Hilton Tokyo.\n\nWe\u2019re delighted you enjoyed the room size, the view from the 32nd floor, and that the gym, pool, and location near the metro met your expectations.\n\nIt\u2019s great to know the two rooms were next to each other; we always strive to accommodate adjacent rooms when possible.\n\nIf you plan another visit and would like two rooms side by side, please mention this when booking so we can arrange the best possible setup.\n\nWe look forward to welcoming you back for another memorable stay."
+       }
+      ],
+      "photos": [],
+      "themes": null,
+      "reviewInteractionSections": [
+       {
+        "primaryDisplayString": "See more",
+        "reviewInteractionType": "REVIEW_EXPAND_LABEL"
+       },
+       {
+        "primaryDisplayString": "See less",
+        "reviewInteractionType": "REVIEW_COLLAPSE_LABEL"
+       }
+      ],
+      "propertyReviewSource": null,
+      "translationInfo": {
+       "targetLocale": null
+      }
+     }
+    ],
+    "sortAndFilter": {
+     "sortAndFilter": [
+      {
+       "name": "travelerType",
+       "label": "Traveler type",
+       "options": [
+        {
+         "label": "All",
+         "optionValue": "all",
+         "isSelected": true
+        },
+        {
+         "label": "Couples",
+         "optionValue": "couples",
+         "isSelected": false
+        },
+        {
+         "label": "Solo travelers",
+         "optionValue": "solo_travelers",
+         "isSelected": false
+        },
+        {
+         "label": "Business travelers",
+         "optionValue": "business_travelers",
+         "isSelected": false
+        },
+        {
+         "label": "Families",
+         "optionValue": "families",
+         "isSelected": false
+        },
+        {
+         "label": "Families with small children",
+         "optionValue": "families_with_small_children",
+         "isSelected": false
+        },
+        {
+         "label": "Groups",
+         "optionValue": "groups",
+         "isSelected": false
+        },
+        {
+         "label": "Travelers with pets",
+         "optionValue": "travelers_with_pets",
+         "isSelected": false
+        }
+       ]
+      },
+      {
+       "name": "sortBy",
+       "label": "Sort by",
+       "options": [
+        {
+         "label": "Highest guest rating",
+         "optionValue": "HIGHEST_TO_LOWEST_RATED",
+         "isSelected": false
+        },
+        {
+         "label": "Lowest guest rating",
+         "optionValue": "LOWEST_TO_HIGHEST_RATED",
+         "isSelected": false
+        },
+        {
+         "label": "Most recent",
+         "optionValue": "NEWEST_TO_OLDEST",
+         "isSelected": true
+        },
+        {
+         "label": "Most relevant",
+         "optionValue": "NEWEST_TO_OLDEST_BY_LANGUAGE",
+         "isSelected": false
+        }
+       ]
+      }
+     ]
+    }
+   }
+  }
+ },
+ "extensions": {
+  "analytics": [
+   {
+    "traceId": "05ec326e-56f3-408c-9b04-54d4ae9dd5fe",
+    "creationTimestamp": 1794038699759,
+    "context": {
+     "pageIdentity": {
+      "lineOfBusiness": "H",
+      "pageIdentifier": "page.Hotels.Infosite.Information",
+      "funnelLocation": 20
+     },
+     "executeXdid": true,
+     "tealiumAccountDetailsPWA": {
+      "tealiumAccountName": "TEALIUM_OFF",
+      "tealiumProfileName": "TEALIUM_OFF"
+     },
+     "beaconOffConfig": {
+      "settings": {
+       "adobeSuiteAccount": "expediaglobaluserdev",
+       "sendToAdobeClientSide": false,
+       "sendToAdobeServerSide": false,
+       "sendToS3": false,
+       "adobeSuiteUrl": "http://expedia.112.2o7.net/b/ss/expediaglobaluserdev/6"
+      },
+      "rulesMatched": "ALL_BEACON_OFF",
+      "bucketing": {
+       "experimentInstance": "",
+       "bucketValue": 2.0,
+       "experimentId": ""
+      },
+      "error": ""
+     },
+     "tealiumAccountDetails": {
+      "tealiumAccountName": "TEALIUM_OFF",
+      "tealiumProfileName": "TEALIUM_OFF"
+     },
+     "entryPageView": false,
+     "beaconEnabled": true,
+     "newVisit": false
+    },
+    "tealiumUtagData": {
+     "lineOfBusiness": "hotels",
+     "siteCountryCode": "CN",
+     "tpid": 3208,
+     "pageInfo": {
+      "lineOfBusiness": "hotels",
+      "requestURL": "http://www.hotels.cn/graphql",
+      "funnelLocation": "SEARCH_RESULTS",
+      "currency": "CNY",
+      "language": "en",
+      "pageName": "page.Hotels.Infosite.Information",
+      "xLineOfBusiness": "HOTEL"
+     },
+     "tc_vars": {
+      "privacy_gdpr_consent": true,
+      "identifiers_session_id": "193f1f5b-40eb-3d67-b752-1ac18bc823dc",
+      "point_of_sale_eg_pos_id": "HCOM_CN",
+      "marketing_sslt_attributed_marketing_code": "DIRECT.WEB_NULL_REFERRAL",
+      "language": "en",
+      "search_request_gaia_id": "Unknown",
+      "point_of_sale_eg_brand_name": "hotels",
+      "device_information_device_type": "MOBILE",
+      "identifiers_tpid": 3208,
+      "timestamps_received_at": "2026-11-07T08:04:59.743290111Z",
+      "identifiers_site_id": 300000042,
+      "host": "www.hotels.cn",
+      "point_of_sale": "Unknown",
+      "is_native_app": false,
+      "is_uis_prime_sourced": true,
+      "is_EU_POS": false,
+      "event_page_name_detailed": "page.Hotels.Infosite.Information",
+      "default_domain": "www.hotels.cn",
+      "point_of_sale_site_currency_code": "CNY",
+      "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1",
+      "privacy_ccpa_consent": true,
+      "identifiers_device_user_agent_id": "943913c6-4516-495d-a9cd-8f20049d75c0",
+      "marketing_sslt_attributed_platform_entryId": "e1a73ccd-c903-4eb4-b949-2e1b6ff7e9aa",
+      "isNativeOneCKO": false,
+      "point_of_sale_locale": "CN",
+      "identifiers_event_trace_id": "05ec326e56f3408c9b0454d4ae9dd5fe",
+      "event_page_funnel_location": "SEARCH_RESULTS",
+      "referrer_url_encoded": "https%3A%2F%2Fwww.hotels.cn%2Fen%2Fho434012%2F",
+      "booking_product_line": "H",
+      "marketing_same_session_marketing_code": "direct",
+      "marketing_latest_marketing_code": "DIRECT.WEB_NULL_REFERRAL",
+      "event_page_product_line": "HOTEL",
+      "request_request_url": "http://www.hotels.cn/graphql",
+      "environment": "prod",
+      "line_of_business": "hotels",
+      "is_native_app_onecheckout": false,
+      "event_page_name": "page.Hotels.Infosite.Information",
+      "domain": "HOTEL",
+      "marketing_latest_platform_entry_id": "e1a73ccd-c903-4eb4-b949-2e1b6ff7e9aa",
+      "referrer_url": "https://www.hotels.cn/en/ho434012/"
+     },
+     "siteName": "www.hotels.cn",
+     "language": "en",
+     "locale": "en_US",
+     "pageName": "page.Hotels.Infosite.Information",
+     "xLineOfBusiness": "HOTEL",
+     "Geo": {
+      "country": "IN",
+      "city": "NEW DELHI",
+      "latitude": 28.6327,
+      "state": "DL",
+      "longitude": 77.2198
+     },
+     "eapid": 42,
+     "domain": "HOTEL",
+     "funnelLocation": "SEARCH_RESULTS",
+     "context": {
+      "traceId": "05ec326e56f3408c9b0454d4ae9dd5fe",
+      "site": {
+       "companyCode": "10113",
+       "tpid": 3208,
+       "eapid": 42,
+       "brandId": "hotels",
+       "siteId": 300000042,
+       "siteName": "www.hotels.cn",
+       "jurisdictionCode": "CHN",
+       "managementUnitCode": "2105",
+       "defaultCountry": "CN"
+      },
+      "privacyContext": {
+       "canTrack": true,
+       "canSell": true,
+       "optInPrivacySelection": {
+        "yesSelected": false,
+        "isSet": false
+       },
+       "dataProtectionGuideline": "GDPR"
+      },
+      "requestId": "05ec326e-56f3-408c-9b04-54d4ae9dd5fe",
+      "hopScotchSessionId": "193f1f5b-40eb-3d67-b752-1ac18bc823dc",
+      "clientInfo": {
+       "deviceCharacteristics": {
+        "brandName": "Apple",
+        "deviceOs": "iPhone OS",
+        "mobileBrowserVersion": "18.0",
+        "resolutionHeight": 1920,
+        "mobile": true,
+        "deviceOsVersion": "18.0",
+        "mobileBrowser": "Safari",
+        "physicalScreenHeight": 89,
+        "modelName": "iPhone",
+        "tablet": false,
+        "resolutionWidth": 1080,
+        "wirelessDevice": false,
+        "physicalScreenWidth": 50
+       },
+       "os": "iPhone OS",
+       "ipAddress": "49.36.137.***",
+       "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1",
+       "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1",
+       "requestMadeByBot": false,
+       "coords": {
+        "country": "IN",
+        "city": "NEW DELHI",
+        "latitude": 28.6327,
+        "state": "DL",
+        "longitude": 77.2198
+       }
+      },
+      "sessionId": "193f1f5b-40eb-3d67-b752-1ac18bc823dc",
+      "user": {
+       "guid": "943913c6-4516-495d-a9cd-8f20049d75c0"
+      }
+     },
+     "siteId": 300000042,
+     "guid": "943913c6-4516-495d-a9cd-8f20049d75c0",
+     "tc_context": {
+      "tcContainerUrl": "https://cdn.tagcommander.com/6035/tc_hcom_prod.js",
+      "enabled": true
+     },
+     "brand": "hotels",
+     "currencyCode": "CNY",
+     "lobDomain": "HOTEL"
+    },
+    "version": "9.3.0",
+    "applicationName": "experience-api-lodging-property"
+   },
+   {
+    "traceId": "05ec326e-56f3-408c-9b04-54d4ae9dd5fe",
+    "creationTimestamp": 1794038699800,
+    "context": {
+     "pageIdentity": {
+      "lineOfBusiness": "H",
+      "pageIdentifier": "page.Hotels.Infosite.Information",
+      "funnelLocation": 20
+     },
+     "executeXdid": true,
+     "tealiumAccountDetailsPWA": {
+      "tealiumAccountName": "TEALIUM_OFF",
+      "tealiumProfileName": "TEALIUM_OFF"
+     },
+     "beaconOffConfig": {
+      "settings": {
+       "adobeSuiteAccount": "expediaglobaluserdev",
+       "sendToAdobeClientSide": false,
+       "sendToAdobeServerSide": false,
+       "sendToS3": false,
+       "adobeSuiteUrl": "http://expedia.112.2o7.net/b/ss/expediaglobaluserdev/6"
+      },
+      "rulesMatched": "ALL_BEACON_OFF",
+      "bucketing": {
+       "experimentInstance": "",
+       "bucketValue": 2,
+       "experimentId": ""
+      },
+      "error": ""
+     },
+     "tealiumAccountDetails": {
+      "tealiumAccountName": "TEALIUM_OFF",
+      "tealiumProfileName": "TEALIUM_OFF"
+     },
+     "entryPageView": false,
+     "beaconEnabled": true,
+     "newVisit": false
+    },
+    "tealiumUtagData": {
+     "lineOfBusiness": "hotels",
+     "siteCountryCode": "CN",
+     "tpid": 3208,
+     "pageInfo": {
+      "lineOfBusiness": "hotels",
+      "requestURL": "http://www.hotels.cn/graphql",
+      "funnelLocation": "SEARCH_RESULTS",
+      "currency": "CNY",
+      "language": "en",
+      "pageName": "page.Hotels.Infosite.Information",
+      "xLineOfBusiness": "HOTEL"
+     },
+     "tc_vars": {
+      "identifiers_session_id": "193f1f5b-40eb-3d67-b752-1ac18bc823dc",
+      "point_of_sale_eg_pos_id": "HCOM_CN",
+      "language": "en",
+      "search_request_gaia_id": "Unknown",
+      "point_of_sale_eg_brand_name": "hotels",
+      "device_information_device_type": "MOBILE",
+      "identifiers_tpid": 3208,
+      "timestamps_received_at": "2026-11-07T08:04:59.770225463Z",
+      "identifiers_site_id": 300000042,
+      "host": "www.hotels.cn",
+      "point_of_sale": "Unknown",
+      "is_native_app": false,
+      "is_uis_prime_sourced": true,
+      "is_EU_POS": false,
+      "event_page_name_detailed": "page.Hotels.Infosite.Information",
+      "default_domain": "www.hotels.cn",
+      "point_of_sale_site_currency_code": "CNY",
+      "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1",
+      "identifiers_device_user_agent_id": "943913c6-4516-495d-a9cd-8f20049d75c0",
+      "isNativeOneCKO": false,
+      "point_of_sale_locale": "CN",
+      "identifiers_event_trace_id": "05ec326e56f3408c9b0454d4ae9dd5fe",
+      "event_page_funnel_location": "SEARCH_RESULTS",
+      "referrer_url_encoded": "https%3A%2F%2Fwww.hotels.cn%2Fen%2Fho434012%2F",
+      "booking_product_line": "H",
+      "event_page_product_line": "HOTEL",
+      "request_request_url": "http://www.hotels.cn/graphql",
+      "environment": "prod",
+      "line_of_business": "hotels",
+      "is_native_app_onecheckout": false,
+      "event_page_name": "page.Hotels.Infosite.Information",
+      "domain": "HOTEL",
+      "referrer_url": "https://www.hotels.cn/en/ho434012/"
+     },
+     "siteName": "www.hotels.cn",
+     "language": "en",
+     "locale": "en_US",
+     "pageName": "page.Hotels.Infosite.Information",
+     "xLineOfBusiness": "HOTEL",
+     "Geo": {
+      "country": "IN",
+      "city": "NEW DELHI",
+      "latitude": 28.6327,
+      "state": "DL",
+      "longitude": 77.2198
+     },
+     "eapid": 42,
+     "domain": "HOTEL",
+     "funnelLocation": "SEARCH_RESULTS",
+     "context": {
+      "traceId": "05ec326e56f3408c9b0454d4ae9dd5fe",
+      "site": {
+       "companyCode": "10113",
+       "tpid": 3208,
+       "eapid": 42,
+       "brandId": "hotels",
+       "siteId": 300000042,
+       "siteName": "www.hotels.cn",
+       "jurisdictionCode": "CHN",
+       "managementUnitCode": "2105",
+       "defaultCountry": "CN"
+      },
+      "requestId": "05ec326e-56f3-408c-9b04-54d4ae9dd5fe",
+      "hopScotchSessionId": "193f1f5b-40eb-3d67-b752-1ac18bc823dc",
+      "clientInfo": {
+       "deviceCharacteristics": {
+        "brandName": "Apple",
+        "deviceOs": "iPhone OS",
+        "mobileBrowserVersion": "18.0",
+        "resolutionHeight": 1920,
+        "mobile": true,
+        "deviceOsVersion": "18.0",
+        "mobileBrowser": "Safari",
+        "physicalScreenHeight": 89,
+        "modelName": "iPhone",
+        "tablet": false,
+        "resolutionWidth": 1080,
+        "wirelessDevice": false,
+        "physicalScreenWidth": 50
+       },
+       "os": "iPhone OS",
+       "ipAddress": "49.36.137.***",
+       "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1",
+       "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.4 Mobile/15E148 Safari/604.1",
+       "requestMadeByBot": false,
+       "coords": {
+        "country": "IN",
+        "city": "NEW DELHI",
+        "latitude": 28.6327,
+        "state": "DL",
+        "longitude": 77.2198
+       }
+      },
+      "sessionId": "193f1f5b-40eb-3d67-b752-1ac18bc823dc",
+      "user": {
+       "guid": "943913c6-4516-495d-a9cd-8f20049d75c0"
+      }
+     },
+     "siteId": 300000042,
+     "guid": "943913c6-4516-495d-a9cd-8f20049d75c0",
+     "tc_context": {
+      "tcContainerUrl": "https://cdn.tagcommander.com/6035/tc_hcom_prod.js",
+      "enabled": true
+     },
+     "brand": "hotels",
+     "currencyCode": "CNY",
+     "lobDomain": "HOTEL"
+    },
+    "version": "9.1.6",
+    "applicationName": "experience-api-lodging-reviews"
+   }
+  ],
+  "trace": {
+   "Trace-ID": "05ec326e-56f3-408c-9b04-54d4ae9dd5fe"
+  }
+ }
+}

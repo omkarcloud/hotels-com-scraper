@@ -1,0 +1,273 @@
+{
+ "q": "paris",
+ "rid": "dbe9e7a5-b8fa-4f91-b53f-35c3dc630f14",
+ "rc": "OK",
+ "sr": [
+  {
+   "@type": "gaiaRegionResult",
+   "index": "0",
+   "gaiaId": "2734",
+   "type": "CITY",
+   "regionNames": {
+    "fullName": "Paris, France",
+    "shortName": "Paris",
+    "displayName": "<B>Paris</B>, France",
+    "lastSearchName": "Paris"
+   },
+   "essId": {
+    "sourceName": "GAI",
+    "sourceId": "2734"
+   },
+   "coordinates": {
+    "lat": "48.853564",
+    "long": "2.348095"
+   },
+   "hierarchyInfo": {
+    "country": {
+     "name": "France",
+     "isoCode2": "FR",
+     "isoCode3": "FRA"
+    },
+    "airport": {
+     "airportCode": "PAR",
+     "airportId": "6139103",
+     "metrocode": "PAR",
+     "multicity": "179898"
+    }
+   },
+   "winnerReasoning": "EXACT_MATCH"
+  },
+  {
+   "@type": "gaiaRegionResult",
+   "index": "1",
+   "gaiaId": "6200422",
+   "type": "NEIGHBORHOOD",
+   "regionNames": {
+    "fullName": "Paris City Center, Paris, France",
+    "shortName": "Paris City Center",
+    "displayName": "<B>Paris</B> City Center, <B>Paris</B>, France",
+    "lastSearchName": "Paris City Center"
+   },
+   "essId": {
+    "sourceName": "GAI",
+    "sourceId": "6200422"
+   },
+   "coordinates": {
+    "lat": "48.862383",
+    "long": "2.339074"
+   },
+   "hierarchyInfo": {
+    "country": {
+     "name": "France",
+     "isoCode2": "FR",
+     "isoCode3": "FRA"
+    },
+    "airport": {
+     "airportCode": "PAR",
+     "airportId": "6139103",
+     "metrocode": "PAR",
+     "multicity": "179898"
+    }
+   }
+  },
+  {
+   "@type": "gaiaRegionResult",
+   "index": "2",
+   "gaiaId": "4670531",
+   "type": "AIRPORT",
+   "regionNames": {
+    "fullName": "Paris, France (CDG-Roissy-Charles de Gaulle)",
+    "shortName": "Paris (CDG-Roissy-Charles de Gaulle)",
+    "displayName": "<B>Paris</B>, France (CDG-Roissy-Charles de Gaulle)",
+    "lastSearchName": "Paris (CDG-Roissy-Charles de Gaulle)"
+   },
+   "essId": {
+    "sourceName": "GAI",
+    "sourceId": "4670531"
+   },
+   "coordinates": {
+    "lat": "49.004061",
+    "long": "2.571006"
+   },
+   "hierarchyInfo": {
+    "country": {
+     "name": "France",
+     "isoCode2": "FR",
+     "isoCode3": "FRA"
+    },
+    "airport": {
+     "airportCode": "CDG",
+     "airportId": "4670531",
+     "metrocode": "PAR",
+     "multicity": "179898"
+    }
+   },
+   "isMinorAirport": "false"
+  },
+  {
+   "@type": "gaiaRegionResult",
+   "index": "3",
+   "gaiaId": "502251",
+   "type": "POI",
+   "regionNames": {
+    "fullName": "Eiffel Tower, Paris, France",
+    "shortName": "Eiffel Tower",
+    "displayName": "Eiffel Tower, <B>Paris</B>, France",
+    "lastSearchName": "Eiffel Tower"
+   },
+   "essId": {
+    "sourceName": "GAI",
+    "sourceId": "502251"
+   },
+   "coordinates": {
+    "lat": "48.858262",
+    "long": "2.294496"
+   },
+   "hierarchyInfo": {
+    "country": {
+     "name": "France",
+     "isoCode2": "FR",
+     "isoCode3": "FRA"
+    },
+    "airport": {
+     "airportCode": "PAR",
+     "airportId": "6139103",
+     "metrocode": "PAR",
+     "multicity": "179898"
+    }
+   }
+  },
+  {
+   "@type": "gaiaRegionResult",
+   "index": "4",
+   "gaiaId": "9474",
+   "type": "CITY",
+   "regionNames": {
+    "fullName": "Paris, Texas, United States of America",
+    "shortName": "Paris",
+    "displayName": "<B>Paris</B>, Texas, United States of America",
+    "lastSearchName": "Paris"
+   },
+   "essId": {
+    "sourceName": "GAI",
+    "sourceId": "9474"
+   },
+   "coordinates": {
+    "lat": "33.660938",
+    "long": "-95.555511"
+   },
+   "hierarchyInfo": {
+    "country": {
+     "name": "United States",
+     "isoCode2": "US",
+     "isoCode3": "USA"
+    },
+    "airport": {
+     "airportCode": "DFW",
+     "airportId": "6139110",
+     "metrocode": "DFW",
+     "multicity": "178253"
+    }
+   }
+  },
+  {
+   "@type": "gaiaRegionResult",
+   "index": "5",
+   "gaiaId": "178677",
+   "type": "NEIGHBORHOOD",
+   "regionNames": {
+    "fullName": "Marais, Paris, France",
+    "shortName": "Marais",
+    "displayName": "Marais, <B>Paris</B>, France",
+    "lastSearchName": "Marais"
+   },
+   "essId": {
+    "sourceName": "GAI",
+    "sourceId": "178677"
+   },
+   "coordinates": {
+    "lat": "48.85860459669464",
+    "long": "2.360825059224867"
+   },
+   "hierarchyInfo": {
+    "country": {
+     "name": "France",
+     "isoCode2": "FR",
+     "isoCode3": "FRA"
+    },
+    "airport": {
+     "airportCode": "PAR",
+     "airportId": "6139103",
+     "metrocode": "PAR",
+     "multicity": "179898"
+    }
+   }
+  },
+  {
+   "@type": "gaiaRegionResult",
+   "index": "6",
+   "gaiaId": "6147276",
+   "type": "TRAINSTATION",
+   "regionNames": {
+    "fullName": "Gare du Nord, Paris, France",
+    "shortName": "Gare du Nord",
+    "displayName": "Gare du Nord, <B>Paris</B>, France",
+    "lastSearchName": "Gare du Nord"
+   },
+   "essId": {
+    "sourceName": "GAI",
+    "sourceId": "6147276"
+   },
+   "coordinates": {
+    "lat": "48.880945",
+    "long": "2.355338"
+   },
+   "hierarchyInfo": {
+    "country": {
+     "name": "France",
+     "isoCode2": "FR",
+     "isoCode3": "FRA"
+    },
+    "airport": {
+     "airportCode": "PAR",
+     "airportId": "6139103",
+     "metrocode": "PAR",
+     "multicity": "179898"
+    }
+   }
+  },
+  {
+   "@type": "gaiaRegionResult",
+   "index": "7",
+   "gaiaId": "6145088",
+   "type": "POI",
+   "regionNames": {
+    "fullName": "Paris Expo, France",
+    "shortName": "Paris Expo",
+    "displayName": "<B>Paris</B> Expo, France",
+    "lastSearchName": "Paris Expo"
+   },
+   "essId": {
+    "sourceName": "GAI",
+    "sourceId": "6145088"
+   },
+   "coordinates": {
+    "lat": "48.831256",
+    "long": "2.290022"
+   },
+   "hierarchyInfo": {
+    "country": {
+     "name": "France",
+     "isoCode2": "FR",
+     "isoCode3": "FRA"
+    },
+    "airport": {
+     "airportCode": "PAR",
+     "airportId": "6139103",
+     "metrocode": "PAR",
+     "multicity": "179898"
+    }
+   }
+  }
+ ]
+}
