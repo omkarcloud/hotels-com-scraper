@@ -231,6 +231,35 @@ def test_parse_search_past_end():
     assert parsed["results"] == [] and parsed["has_next"] is False
 
 
+def test_parse_search_homes_dateless():
+    """A vacation-rental search (stay_type=homes, no dates): no pagination
+    block, an unfilled date template in the heading, unit lines before the
+    area (pod capture 2026-11-11, trimmed to 4 cards)."""
+    parsed = P.parse_search(gql("graphql_search_homes_dateless.json", "propertySearch"))
+    assert parsed["has_paging"] is False and parsed["has_next"] is False
+    assert parsed["heading"] == "44 Properties in Las Vegas, Nevada, United States of America"
+    rows = {r["id"]: r for r in parsed["results"]}
+    assert len(rows) == 4 and all(r["area"] == "Paradise" for r in rows.values())
+    assert rows["132544001"]["messages"][:2] == ["Entire apartment", "Sleeps 6 · 2 bedrooms · 2 bathrooms"]
+    assert rows["138626768"]["messages"][0] == "Sleeps 4 · 1 bathroom"
+    assert "Paradise" not in rows["132544001"]["messages"]
+    assert P.parse_search(gql("graphql_search_las_vegas.json", "propertySearch"))["has_paging"] is True
+
+
+def test_results_heading_template():
+    assert P._results_heading("39 Properties in Las Vegas. ${startDate} through ${endDate}") == "39 Properties in Las Vegas"
+    dated = "90 Properties in Las Vegas, Nevada, United States of America. June 11, 2027 through June 13, 2027"
+    assert P._results_heading(dated) == dated
+    assert P._results_heading("${count} Properties") is None and P._results_heading(None) is None
+
+
+def test_unit_lines_are_not_areas():
+    for line in ("Entire home", "Entire apartment", "Private room", "Sleeps 4 · 1 bathroom", "2 bedrooms · 1 bathroom"):
+        assert P._UNIT_LINE_RE.search(line), line
+    for line in ("Paradise", "Las Vegas Strip", "Green Valley, 11.2 mi from Las Vegas", "Entertainment District"):
+        assert not P._UNIT_LINE_RE.search(line), line
+
+
 def test_parse_search_sparse():
     parsed = P.parse_search({})
     assert parsed["results"] == [] and parsed["has_next"] is False and parsed["total_count"] is None
@@ -288,24 +317,21 @@ def test_parse_reviews():
     assert first["stay"]["nights"] and first["stay"]["text"]
     assert first["title"] is None or isinstance(first["title"], str)        # empty titles are null
     assert {o["value"] for o in parsed["sort_options"]} == set(refs.REVIEW_SORTS.values())
-    assert {o["value"] for o in parsed["traveler_types"]} == set(refs.REVIEW_TRAVELER_TYPES.values())
+    assert "traveler_types" not in parsed
+    assert not {"travelers", "themes", "helpful_votes"} & set(first)        # hotels.com never fills them
 
 
 def test_parse_review_sparse_and_responses():
     review = P.parse_review({"id": "x", "reviewScoreWithDescription": {"value": "10/10 Exceptional"},
-                             "stayDuration": "Anna, 2-night family trip",
+                             "stayDuration": "Anna, 2-night trip", "submissionTimeLocalized": "Sept 3, 2026",
                              "managementResponses": [{"header": {"text": "Response from Front Desk on Oct 1, 2026"},
-                                                      "response": "Thank you<br/>Come again"}],
-                             "reviewInteractionSections": [{"reviewInteractionType": "HELPFUL_REVIEW",
-                                                            "primaryDisplayString": "3 people found this helpful"}]})
-    assert review["score"] == 10.0 and review["label"] == "Exceptional" and review["stay"]["nights"] == 2
-    assert review["stay"]["trip_type"] == "family trip"
+                                                      "response": "Thank you<br/>Come again"}]})
+    assert review["score"] == 10.0 and review["label"] == "Exceptional"
+    assert review["stay"] == {"text": "Anna, 2-night trip", "nights": 2}
+    assert review["date"] == "2026-09-03"                                  # the UK storefront's "Sept"
     assert review["management_responses"] == [{"responder": "Front Desk", "date": "2026-10-01", "text": "Thank you\nCome again"}]
-    assert review["helpful_votes"] == 3 and review["text"] is None and review["photos"] == []
+    assert review["text"] is None and review["photos"] == []
     assert P.parse_reviews({})["reviews"] == [] and P.parse_reviews(None)["summary"]["score"] is None
-
-
-# ---- calendar ---------------------------------------------------------------------------------------
 
 def test_parse_calendar_without_availability():
     parsed = P.parse_calendar(gql("graphql_calendar_without_availability.json", "propertyRatesDateSelector"))
@@ -500,6 +526,28 @@ def test_api_search_totals(monkeypatch):
                                  "total_count": 50 + cards}
 
 
+def test_api_search_without_pagination_block(monkeypatch):
+    """No pagination block (homes searches, some filtered pages): the site's
+    count is wrong (39 homes, then 50 more on page 2, 2026-11-11), so a full
+    page says "maybe more" with no total, an over-full page is cut to the
+    limit, and a short page ends the set."""
+    full = gql("graphql_search_las_vegas.json", "propertySearch")
+    cards = [c for c in full["propertySearchListings"] if c.get("__typename") == "LodgingCard"]
+    homes = dict(full, pagination=None, summary={"matchedPropertiesSize": 39, "resultsHeading": "39 Properties"})
+    monkeypatch.setattr(api, "fetch_search", lambda *a, **k: dict(homes, propertySearchListings=cards))
+    out = api._search(**_search_data())
+    assert out["pagination"] == {"page": 1, "items_per_page": 50, "has_next": True, "total_pages": None, "total_count": None}
+    assert len(out["results"]) == 50
+    out = api._search(**_search_data(page=2, limit=20))
+    assert len(out["results"]) == 20 and out["pagination"]["has_next"] is True     # 50 cards for 20 asked
+    monkeypatch.setattr(api, "fetch_search", lambda *a, **k: dict(homes, propertySearchListings=cards[:21]))
+    out = api._search(**_search_data(page=2))
+    assert out["pagination"] == {"page": 2, "items_per_page": 50, "has_next": False, "total_pages": 2, "total_count": 71}
+    monkeypatch.setattr(api, "fetch_search", lambda *a, **k: dict(homes, propertySearchListings=[]))
+    out = api._search(**_search_data(page=3))
+    assert out["results"] == [] and out["pagination"]["has_next"] is False and out["pagination"]["total_count"] is None
+
+
 def test_api_search_map_area_location(monkeypatch):
     full = gql("graphql_search_las_vegas.json", "propertySearch")
     monkeypatch.setattr(api, "fetch_search", lambda *a, **k: full)
@@ -522,6 +570,17 @@ def test_nights_from_the_dates_line():
     assert P._nights_between("Jun 11 - Jun 13") == 2
     assert P._nights_between("Dec 30 - Jan 2") == 3
     assert P._nights_between("tonight") is None and P._nights_between(None) is None
+    # the line names no year, and February's length hangs on the check-in year
+    assert P._nights_between("Feb 28 - Mar 1", 2027) == 1 and P._nights_between("Feb 28 - Mar 1", 2028) == 2
+    assert P._nights_between("Feb 29 - Mar 2", 2028) == 2 and P._nights_between("Dec 30 - Jan 2", 2027) == 3
+    assert P._nights_between("Feb 29 - Mar 1") == 1          # without a year: the next year that has the day
+    # a search card takes the year from the search's own dates
+    card = {"__typename": "LodgingCard", "id": "1", "priceSection": {"priceSummary": {"displayMessages": [
+        {"lineItems": [{"__typename": "LodgingEnrichedMessage", "value": "Feb 28 - Mar 1"}]}]}}}
+    nights = lambda year: P.parse_search({"propertySearchListings": [card], "criteria": {"primary": {"dateRange": {
+        "checkInDate": {"day": 28, "month": 2, "year": year},
+        "checkOutDate": {"day": 1, "month": 3, "year": year}}}}})["results"][0]["price"]["nights"]
+    assert nights(2027) == 1 and nights(2028) == 2
     # resort fees and taxes: $136 nightly, $216 total, still ONE night
     block = {"displayMessages": [
         {"lineItems": [{"__typename": "LodgingEnrichedMessage", "value": "$136 nightly"}]},
@@ -531,3 +590,33 @@ def test_nights_from_the_dates_line():
     price = P._price_lines(block)
     assert price["nightly"] == 136.0 and price["total"] == 216.0 and price["nights"] == 1
     assert price["is_taxes_included"] is True and price["dates_text"] == "Dec 9 - Dec 10"
+
+
+def test_nightly_price_is_the_nightly_line_only():
+    """A loyalty line that mentions a night must not become the nightly rate
+    (Luxor read "$8" from such a line, 2026-11-10)."""
+    block = {"displayMessages": [
+        {"lineItems": [{"__typename": "LodgingEnrichedMessage", "value": "$53 nightly"}]},
+        {"lineItems": [{"__typename": "DisplayPrice", "role": "LEAD", "price": {"formatted": "$61 total"}}]},
+        {"lineItems": [{"__typename": "LodgingEnrichedMessage", "value": "Earn $8 in OneKeyCash per night"}]},
+        {"lineItems": [{"__typename": "LodgingEnrichedMessage", "value": "Nov 22 - Nov 23"}]}]}
+    price = P._price_lines(block)
+    assert price["nightly"] == 53.0 and price["total"] == 61.0 and price["nights"] == 1
+    late = {"displayMessages": [{"lineItems": [{"__typename": "LodgingEnrichedMessage", "value": "$8 off per night"}]}]}
+    assert P._price_lines(late)["nightly"] is None
+
+
+def test_api_reviews_paging_follows_the_count(monkeypatch):
+    """Keyword pages can be short (47 of 50); the next link follows the
+    summary's count (the matching total), never a short page."""
+    info = gql("graphql_reviews_140596.json", "propertyInfo", "reviewInfo")
+    short = dict(info, summary=dict(info["summary"], totalCount={"raw": 337.0, "formatted": "337"}),
+                 reviews=info["reviews"][:17])
+    monkeypatch.setattr(api, "_record", lambda hotel, country: {"id": "140596", "hotel_id": "ho119566", "name": "Bellagio",
+                                                                "link": "https://www.hotels.com/ho119566/"})
+    monkeypatch.setattr(api, "fetch_reviews", lambda *a, **k: short)
+    out = api._reviews(hotel="ho119566", page=1, limit=20, sort="NEWEST_TO_OLDEST", query="pool", country="US")
+    assert out["pagination"] == {"page": 1, "items_per_page": 20, "has_next": True, "total_pages": 17, "total_count": 337}
+    out = api._reviews(hotel="ho119566", page=17, limit=20, sort="NEWEST_TO_OLDEST", query="pool", country="US")
+    assert out["pagination"]["has_next"] is False
+    assert "traveler_type" not in out and "traveler_types" not in out

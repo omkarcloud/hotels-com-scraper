@@ -245,14 +245,6 @@ REVIEW_SORTS = {
     "relevant": "NEWEST_TO_OLDEST_BY_LANGUAGE",
 }
 
-# the review overlay's traveler-type filter values (the site's own enum,
-# from reviewInfo.sortAndFilter, 2026-11-07)
-REVIEW_TRAVELER_TYPES = {
-    "couples": "couples", "solo": "solo_travelers", "business": "business_travelers",
-    "families": "families", "families_with_small_children": "families_with_small_children",
-    "groups": "groups", "pets": "travelers_with_pets",
-}
-
 # the search page's "Traveler experience" filter (criteria selection
 # travelerType): the option values the Las Vegas Hotel-Search page offers
 # (2026-11-10). The FAMILY / COUPLE / ... tokens used before were ignored
@@ -268,7 +260,8 @@ SEARCH_TRAVELER_TYPES = {
 STAY_TYPES = {"hotels": "hotels_option", "homes": "vacation_rentals_option"}
 
 # Filters whose matches the site's matchedPropertiesSize ignores: it keeps
-# the destination's full total (Las Vegas 291 with brand=MGM, hotel name
-# Bellagio or loved_by_guests, while the pages hold 25 / 2 / 15 hotels;
-# 2026-11-10), so a search using one reports no total, only has_next.
-UNCOUNTED_FILTERS = ("brand", "name")
+# the destination's full total (Las Vegas 291 with brand=MGM or
+# loved_by_guests, while the pages hold 25 / 15 hotels; 2026-11-10), so a
+# search using one reports no total, only has_next. A hotel name only puts
+# that hotel first (dated searches keep the whole list), so it is counted.
+UNCOUNTED_FILTERS = ("brand",)

@@ -12,6 +12,9 @@ Fixtures (hotels_com/fixtures/, captured 2026-11-07 with curl_cffi):
   graphql_search_las_vegas.json    propertySearch "Las Vegas", Jun 11-13 2027,
                                    50 of 285 cards + markers (USD)
   graphql_search_past_end.json     the same search from resultsStartingIndex 5000
+  graphql_search_homes_dateless.json  propertySearch "Las Vegas" stay_type=homes, no
+                                   dates (2026-11-11): no pagination block, 4 of 50
+                                   cards (vacation-rental unit lines before the area)
   graphql_search_tokyo_dateless_old.json  propertySearch "Tokyo", no dates (the
                                    card selection before the 2026-11-07 extension)
   graphql_offers_140596.json       propertyOffers: Bellagio, 15 room types, Jun 11-13 2027
@@ -217,10 +220,11 @@ def _date(parts):
 
 
 def _date_text(text):
-    """"Sep 2, 2026" -> "2026-09-02"."""
+    """"Sep 2, 2026" -> "2026-09-02"; the UK storefront writes "Sept"."""
+    value = re.sub(r"\bSept\b", "Sep", _clean(text) or "")
     for fmt in ("%b %d, %Y", "%B %d, %Y", "%d %b %Y", "%d %B %Y"):
         try:
-            return datetime.strptime(_clean(text) or "", fmt).date().isoformat()
+            return datetime.strptime(value, fmt).date().isoformat()
         except ValueError:
             continue
     return None
@@ -302,14 +306,19 @@ def parse_autocomplete(payload, pos=DEFAULT_POS):
 
 _REVIEW_COUNT_RE = re.compile(r"(\d[\d,]*)\s+reviews?\b", re.I)
 _AREA_DISTANCE_RE = re.compile(r"^(.*?),\s*(\d[\d.,]*\s*(?:mi|km|miles?|kilometers?)\b.*)$", re.I)
+# A vacation-rental card lists its unit before its area: "Entire apartment",
+# "Sleeps 4 · 1 bedroom · 1 bathroom", then "Paradise" (2026-11-11).
+_UNIT_LINE_RE = re.compile(r"^(?:(?:entire|private|shared)(?:\s+[a-z]+){1,3}$|sleeps\s+\d|\d+\s+(?:bed|bedroom|bath|bathroom)s?\b)", re.I)
+_NIGHTLY_LINE_RE = re.compile(r"^\s*\D{0,5}\d[\d,.]*\s*(?:nightly|per night|/\s*night)\s*$", re.I)
 _DATES_RE = re.compile(r"\b[A-Z][a-z]{2} \d{1,2}\s*-\s*[A-Z][a-z]{2} \d{1,2}\b")
 
 
-def _price_lines(price_summary, default_currency="USD"):
+def _price_lines(price_summary, default_currency="USD", year=None):
     """A PropertyPrice block -> {nightly, total, original_total, nights,
     currency, is_taxes_included, dates_text}. hotels.com cards show
     "$120 nightly" as a qualifier line and the LEAD price as "$303 total"
-    with the STRIKEOUT beside it."""
+    with the STRIKEOUT beside it. `year` is the check-in year when the
+    caller knows it (the dates line names none, see _nights_between)."""
     out = {"nightly": None, "total": None, "original_total": None, "nights": None,
            "currency": None, "is_taxes_included": None, "dates_text": None}
     if not isinstance(price_summary, dict):
@@ -348,8 +357,11 @@ def _price_lines(price_summary, default_currency="USD"):
     for line in lines:
         low = line.lower()
         if "nightly" in low or "per night" in low:
+            # only a line that IS a nightly price ("$53 nightly"), never a
+            # loyalty / discount line that mentions a night ("earn $8 ... per
+            # night" read as the nightly rate on Luxor, 2026-11-10); first wins
             amount, cur = _money(line, default_currency)
-            if amount is not None:
+            if amount is not None and out["nightly"] is None and _NIGHTLY_LINE_RE.match(line):
                 out["nightly"] = amount
                 out["currency"] = out["currency"] or cur
         elif "taxes and fees" in low or "includes taxes" in low:
@@ -362,26 +374,34 @@ def _price_lines(price_summary, default_currency="USD"):
         # from the stay's own dates ("Dec 9 - Dec 10" = 1 night); never from
         # total / nightly, which resort fees and taxes skew (Bellagio: $136
         # nightly, $216 total for ONE night, 2026-11-10)
-        out["nights"] = _nights_between(out["dates_text"])
+        out["nights"] = _nights_between(out["dates_text"], year)
     return out
 
 
 _DATES_SPAN_RE = re.compile(r"\b([A-Z][a-z]{2}) (\d{1,2})\s*-\s*([A-Z][a-z]{2}) (\d{1,2})\b")
 
 
-def _nights_between(text):
-    """"Dec 9 - Dec 10" -> 1, "Dec 30 - Jan 2" -> 3; None when no span."""
+def _nights_between(text, year=None):
+    """"Dec 9 - Dec 10" -> 1, "Dec 30 - Jan 2" -> 3; None when no span.
+    The line names no year and February's length hangs on it ("Feb 28 -
+    Mar 1" is one night, two in a leap year): `year` is the check-in year
+    when the caller knows it (a search echoes its dates), else the stay is
+    taken as the next one from today."""
     match = _DATES_SPAN_RE.search(str(text or ""))
     if not match:
         return None
-    try:
-        start = datetime.strptime(f"{match.group(1)} {match.group(2)} 2000", "%b %d %Y")
-        end = datetime.strptime(f"{match.group(3)} {match.group(4)} 2000", "%b %d %Y")
-    except ValueError:
-        return None
-    if end <= start:
-        end = end.replace(year=2001)               # the stay crosses New Year
-    return (end - start).days or None
+    today = datetime.now()
+    for candidate in ([year] if year else range(today.year, today.year + 9)):
+        try:
+            start = datetime.strptime(f"{match.group(1)} {match.group(2)} {candidate}", "%b %d %Y")
+            end = datetime.strptime(f"{match.group(3)} {match.group(4)} {candidate}", "%b %d %Y")
+            if end <= start:
+                end = end.replace(year=candidate + 1)      # the stay crosses New Year
+        except ValueError:
+            continue                                       # Feb 29 outside a leap year
+        if year or (today - start).days <= 1:              # a day of slack for the site's own "today"
+            return (end - start).days or None
+    return None
 
 
 def _neighborhood(location_info):
@@ -391,8 +411,9 @@ def _neighborhood(location_info):
     return primary, sub
 
 
-def parse_card(card, markers=None, pos=DEFAULT_POS):
-    """One LodgingCard (+ its map marker) -> a result row."""
+def parse_card(card, markers=None, pos=DEFAULT_POS, year=None):
+    """One LodgingCard (+ its map marker) -> a result row. `year` is the
+    search's check-in year (for the nights of the card's dates line)."""
     markers = markers or {}
     default_currency = _currency_for(pos)
     expedia_id = _clean(card.get("id"))
@@ -432,7 +453,7 @@ def parse_card(card, markers=None, pos=DEFAULT_POS):
     match = next((m for m in (_REVIEW_COUNT_RE.search(t or "") for t in texts) if m), None)
     if match:
         review_count = int(match.group(1).replace(",", ""))
-    price = _price_lines(_get(card, "priceSection", "priceSummary"), default_currency)
+    price = _price_lines(_get(card, "priceSection", "priceSummary"), default_currency, year)
     discount_badge = _clean(_get(card, "priceSection", "standardBadge", "standardBadge", "text")
                             or _get(card, "priceSection", "badge", "text"))
     media_badges = [b.get("text") for b in ((_get(card, "mediaSection", "badges") or {}).values())
@@ -450,8 +471,9 @@ def parse_card(card, markers=None, pos=DEFAULT_POS):
     # The first message under the heading is the area the card places the
     # hotel in ("Las Vegas Strip"), sometimes with its distance from the
     # searched place ("Green Valley, 11.2 mi from Las Vegas", 2026-11-07).
+    # Vacation rentals put their unit lines first; those stay in `messages`.
     area = None
-    first = messages[0] if messages else None
+    first = next((m for m in messages if not _UNIT_LINE_RE.search(m)), None)
     if first and not neighborhood and not re.search(r"refundable|cancell|pay ", first, re.I):
         match = _AREA_DISTANCE_RE.match(first)
         if match:
@@ -494,19 +516,34 @@ def parse_card(card, markers=None, pos=DEFAULT_POS):
     }
 
 
+def _results_heading(text):
+    """The results heading without the site's unfilled date template: a
+    dateless search reads "44 Properties in Las Vegas, Nevada, United States
+    of America. ${startDate} through ${endDate}" (2026-11-11)."""
+    text = _clean(text)
+    if not text or "${" not in text:
+        return text
+    kept = [part for part in re.split(r"(?<=\.)\s+", text) if "${" not in part]
+    return _clean(" ".join(kept).rstrip(".")) or None
+
+
 def parse_search(result, pos=DEFAULT_POS):
     """propertySearch payload -> {location, checkin, checkout, total_count,
-    has_next, next_start, results}."""
+    has_next, has_paging, next_start, results}. `has_paging` is False when the
+    payload carries no pagination block at all (vacation-rental searches,
+    some filtered pages): has_next then says nothing."""
     result = result or {}
     markers = {}
     for marker in _get(result, "dynamicMap", "map", "markers") or []:
         if isinstance(marker, dict) and marker.get("id"):
             markers[str(marker["id"])] = marker
-    rows = [parse_card(card, markers, pos) for card in result.get("propertySearchListings") or []
-            if isinstance(card, dict) and card.get("__typename") == "LodgingCard"]
     criteria = _get(result, "criteria", "primary") or {}
     destination = criteria.get("destination") or {}
     dates = criteria.get("dateRange") or {}
+    year = _get(dates, "checkInDate", "year")
+    year = year if isinstance(year, int) and not isinstance(year, bool) else None
+    rows = [parse_card(card, markers, pos, year) for card in result.get("propertySearchListings") or []
+            if isinstance(card, dict) and card.get("__typename") == "LodgingCard"]
     pagination = result.get("pagination") or {}
     next_subset = _get(pagination, "subSets", "nextSubSet") or {}
     return {
@@ -515,8 +552,9 @@ def parse_search(result, pos=DEFAULT_POS):
         "checkin": _date(dates.get("checkInDate")) if dates else None,
         "checkout": _date(dates.get("checkOutDate")) if dates else None,
         "total_count": _get(result, "summary", "matchedPropertiesSize"),
-        "heading": _clean(_get(result, "summary", "resultsHeading")),
+        "heading": _results_heading(_get(result, "summary", "resultsHeading")),
         "has_next": bool(next_subset.get("startingIndex") is not None),
+        "has_paging": isinstance(result.get("pagination"), dict),
         "next_start": next_subset.get("startingIndex"),
         "results": rows,
     }
@@ -657,16 +695,8 @@ def parse_review(review):
         responses.append({"responder": match.group(1) if match else None,
                           "date": _date_text(match.group(2)) if match else None,
                           "text": _text(resp.get("response"))})
-    stay = _clean(review.get("stayDuration"))     # "Jongwoong, 3-night trip" / "Anna, 2-night family trip"
+    stay = _clean(review.get("stayDuration"))     # "Jongwoong, 3-night trip"
     stay_match = _STAY_RE.search(stay or "")
-    trip_type = None
-    if stay_match:
-        tail = _clean(stay[stay_match.end():].strip(" ,"))      # "trip" / "family trip" / "business trip"
-        trip_type = tail if tail and tail.lower() not in ("trip", "stay") else None
-    helpful = None
-    for section in review.get("reviewInteractionSections") or []:
-        if (section or {}).get("reviewInteractionType") == "HELPFUL_REVIEW":
-            helpful = _int(section.get("primaryDisplayString"))
     author = _clean(_get(review, "reviewAuthorAttribution", "text"))
     return {
         "id": review.get("id"),
@@ -677,21 +707,23 @@ def parse_review(review):
         "text": _text(review.get("text")),
         "author": author,
         "date": _date_text(review.get("submissionTimeLocalized")),
-        "stay": {"text": stay, "nights": int(stay_match.group(1)) if stay_match else None, "trip_type": trip_type},
-        "travelers": [t for t in review.get("travelers") or [] if t],
-        "themes": [_clean(t.get("label")) for t in review.get("themes") or [] if isinstance(t, dict) and t.get("label")],
+        "stay": {"text": stay, "nights": int(stay_match.group(1)) if stay_match else None},
         "is_verified": (review.get("disclaimer") or "").lower() == "verified review",
         "language": review.get("locale"),
         "source": _clean(_get(review, "propertyReviewSource", "text", "value")),
         "photos": [{"link": p.get("url"), "caption": _clean(p.get("description"))}
                    for p in review.get("photos") or [] if isinstance(p, dict) and p.get("url")],
         "management_responses": responses,
-        "helpful_votes": helpful,
     }
 
 
 def parse_reviews(info):
-    """reviewInfo payload -> {summary, reviews, sort_options, traveler_types}."""
+    """reviewInfo payload -> {summary, reviews, sort_options}.
+
+    hotels.com leaves the review's travelers, themes and helpful votes empty
+    (about 700 reviews of 6 hotels, 2026-11-10) and ignores the review
+    overlay's traveler-type filter (the same reviews come back), so neither
+    is read or offered."""
     info = info or {}
     summary = info.get("summary") or {}
     categories = []
@@ -703,14 +735,11 @@ def parse_reviews(info):
                            "percentage": detail.get("ratingPercentage")})
     total = _get(summary, "totalCount", "raw")
     avg = _get(summary, "averageOverallRating", "raw")
-    sorts, traveler_types = [], []
+    sorts = []
     for block in _get(info, "sortAndFilter", "sortAndFilter") or []:
-        options = [{"value": o.get("optionValue"), "label": _clean(o.get("label"))}
-                   for o in (block or {}).get("options") or [] if isinstance(o, dict)]
         if (block or {}).get("name") == "sortBy":
-            sorts = options
-        elif (block or {}).get("name") == "travelerType":
-            traveler_types = [o for o in options if o["value"] != "all"]
+            sorts = [{"value": o.get("optionValue"), "label": _clean(o.get("label"))}
+                     for o in block.get("options") or [] if isinstance(o, dict)]
     return {
         "summary": {
             "score": round(float(avg), 1) if avg is not None else None,
@@ -721,7 +750,6 @@ def parse_reviews(info):
         },
         "reviews": [parse_review(r) for r in info.get("reviews") or [] if isinstance(r, dict)],
         "sort_options": sorts,
-        "traveler_types": traveler_types,
     }
 
 

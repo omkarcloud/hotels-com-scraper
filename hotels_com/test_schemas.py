@@ -140,15 +140,16 @@ def test_rooms_schema():
 
 
 def test_reviews_schema():
-    loaded = schemas.HotelReviewsSchema().load({"hotel": "6136437", "sort": "highest_rating", "traveler_type": "Couples",
+    loaded = schemas.HotelReviewsSchema().load({"hotel": "6136437", "sort": "highest_rating",
                                                "limit": "50", "page": "2", "query": "breakfast"})
-    assert loaded["sort"] == "HIGHEST_TO_LOWEST_RATED" and loaded["traveler_type"] == "couples"
+    assert loaded["sort"] == "HIGHEST_TO_LOWEST_RATED"
     assert loaded["limit"] == 50 and loaded["page"] == 2 and loaded["query"] == "breakfast"
     defaults = schemas.HotelReviewsSchema().load({"hotel": "6136437"})
-    assert defaults["sort"] == "NEWEST_TO_OLDEST" and defaults["limit"] == 20 and defaults["traveler_type"] is None
+    assert defaults["sort"] == "NEWEST_TO_OLDEST" and defaults["limit"] == 20 and "traveler_type" not in defaults
     assert "limit" in _error(schemas.HotelReviewsSchema, {"hotel": "6136437", "limit": "51"})
     assert "sort" in _error(schemas.HotelReviewsSchema, {"hotel": "6136437", "sort": "oldest"})
-    assert "traveler_type" in _error(schemas.HotelReviewsSchema, {"hotel": "6136437", "traveler_type": "robots"})
+    # hotels.com ignores the review traveler-type filter, so the API does not offer it
+    assert "traveler_type" in _error(schemas.HotelReviewsSchema, {"hotel": "6136437", "traveler_type": "couples"})
 
 
 def test_calendar_schema():

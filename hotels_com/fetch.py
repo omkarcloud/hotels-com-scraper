@@ -606,13 +606,11 @@ query ReviewsQuery($context: ContextInput!, $propertyId: String!, $searchCriteri
     reviewInfo(searchCriteria: $searchCriteria) {
       summary { totalCount { raw formatted } averageOverallRating { raw formatted } superlative paginateAction { text } reviewSummaryDetails { label ratingPercentage formattedRatingOutOfMax } propertyReviewCountDetails { shortDescription } }
       reviews {
-        id superlative locale title brandType disclaimer text submissionTimeLocalized stayDuration travelers
+        id superlative locale title brandType disclaimer text submissionTimeLocalized stayDuration
         reviewScoreWithDescription { label value }
         reviewAuthorAttribution { text }
         managementResponses { id header { text } response }
         photos { url description }
-        themes { label }
-        reviewInteractionSections { primaryDisplayString reviewInteractionType }
         propertyReviewSource { text { value } }
         translationInfo { targetLocale }
       }
@@ -624,11 +622,9 @@ query ReviewsQuery($context: ContextInput!, $propertyId: String!, $searchCriteri
 REVIEWS_MAX_SIZE = 50   # the endpoint caps a call at 50 (verified 2026-11-07)
 
 
-def fetch_reviews(expedia_id, start=0, size=20, sort="NEWEST_TO_OLDEST", traveler_type=None,
+def fetch_reviews(expedia_id, start=0, size=20, sort="NEWEST_TO_OLDEST",
                   search_term=None, pos=DEFAULT_POS):
     selections = [{"id": "sortBy", "value": sort}]
-    if traveler_type:
-        selections.append({"id": "travelerType", "value": traveler_type})
     if search_term:
         selections.append({"id": "searchTerm", "value": search_term})
     variables = {"propertyId": str(expedia_id), "searchCriteria": {

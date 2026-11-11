@@ -161,7 +161,7 @@ class SearchSchema(BaseSchema):
     free_cancellation = Flag(metadata={"description": "true keeps only fully refundable properties"})
     pay_later = Flag(metadata={"description": "true keeps only reserve-now-pay-later properties"})
     name = StrippedString(required=False, load_default=None, validate=validate.Length(max=100), metadata={
-        "description": "only the hotel with this name, as the site matches it (Bellagio)"})
+        "description": "a hotel name to put first in the results (Bellagio); the site may also narrow to it"})
     neighborhood = CommaListField(upper=False, metadata={
         "description": "comma-separated neighborhood region ids (from /hotels-com/hotels/filters)"})
     brand = CommaListField(upper=False, metadata={
@@ -238,9 +238,6 @@ class HotelReviewsSchema(BaseSchema):
         "description": "reviews per page, 1-50 (default 20)"})
     sort = ChoiceField(refs.REVIEW_SORTS, load_default="NEWEST_TO_OLDEST", metadata={
         "description": "newest (default), highest_rating, lowest_rating or relevant"})
-    traveler_type = ChoiceField(refs.REVIEW_TRAVELER_TYPES, metadata={
-        "description": "only reviews by this kind of traveler: couples, solo, business, families, "
-                       "families_with_small_children, groups, pets"})
     query = StrippedString(required=False, load_default=None, validate=validate.Length(max=100), metadata={
         "description": "only reviews mentioning this word or phrase"})
     country = country_field()

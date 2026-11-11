@@ -97,9 +97,17 @@ def _search(**data):
         destination, start, checkin=data.get("checkin"), checkout=data.get("checkout"),
         adults=data["adults"], children=data.get("children"), room_count=data["rooms"], sort=data["sort"],
         selections=selections, ranges=ranges, size=limit, pos=country), pos=country)
-    total = parsed["total_count"]
-    if not parsed["has_next"] and parsed["results"]:
-        total = start + len(parsed["results"])      # the last page: the whole set is known
+    results, has_next, total = parsed["results"], parsed["has_next"], parsed["total_count"]
+    if not parsed["has_paging"]:
+        # No pagination block (vacation-rental searches, some filtered pages,
+        # 2026-11-11): the site's count is wrong then too (39 homes, and the
+        # next page held 50 more), and a page can carry more cards than asked
+        # for (88 for 50). A full page means "maybe more"; the rest is cut so
+        # the next page doesn't repeat it.
+        has_next, total = len(results) >= limit, None
+        results = results[:limit]
+    if not has_next and results:
+        total = start + len(results)                # the last page: the whole set is known
     elif any(data.get(key) for key in refs.UNCOUNTED_FILTERS) or data.get("guest_rating") == "loved_by_guests":
         total = None                                # the site's count ignores these filters
     total_pages = max(1, math.ceil(total / limit)) if isinstance(total, (int, float)) and total else None
@@ -118,11 +126,11 @@ def _search(**data):
         "rooms": data["rooms"],
         "sort": next((k for k, v in refs.SORTS.items() if v == data["sort"]), data["sort"].lower()),
         "storefront": _storefront(country),
-        "results": parsed["results"],
+        "results": results,
         "pagination": {
             "page": page,
             "items_per_page": limit,
-            "has_next": parsed["has_next"],
+            "has_next": has_next,
             "total_pages": total_pages,
             "total_count": int(total) if isinstance(total, (int, float)) else None,
         },
@@ -192,30 +200,30 @@ def hotel_rooms(**data):
 
 # ---- hotels/reviews --------------------------------------------------------------------------
 
-def _reviews(hotel, page, limit, sort, traveler_type, query, country):
+def _reviews(hotel, page, limit, sort, query, country):
     record = _record(hotel, country)
     start = (page - 1) * limit
     parsed = parsers.parse_reviews(fetch_reviews(record["id"], start=start, size=limit, sort=sort,
-                                                 traveler_type=traveler_type, search_term=query, pos=country))
+                                                 search_term=query, pos=country))
+    # The summary's count is the total for the request: the hotel's reviews,
+    # or with a `query` the matching ones (Bellagio: 15,573, "pool": 337,
+    # 2026-11-10). Pages can hold a few reviews fewer than asked (47 of 50
+    # for "pool"), so the next page follows the count, never a short page.
     total = parsed["summary"]["review_count"]
-    filtered = bool(traveler_type or query)
-    if filtered or total is None:
-        # the summary count is the hotel's total, not the filtered one
-        total_pages, total_count = None, None if filtered else total
+    if total is None:
+        total_pages, total_count = None, None
         has_next = len(parsed["reviews"]) >= limit
     else:
         total_pages, total_count = max(1, math.ceil(total / limit)), total
-        has_next = start + len(parsed["reviews"]) < total
+        has_next = start + limit < total
     return {
         **_identity(record),
         "storefront": _storefront(country),
         "sort": next((k for k, v in refs.REVIEW_SORTS.items() if v == sort), sort),
-        "traveler_type": next((k for k, v in refs.REVIEW_TRAVELER_TYPES.items() if v == traveler_type), traveler_type),
         "query": query,
         "summary": parsed["summary"],
         "reviews": parsed["reviews"],
         "sort_options": parsed["sort_options"],
-        "traveler_types": parsed["traveler_types"],
         "pagination": {"page": page, "items_per_page": limit, "has_next": has_next,
                        "total_pages": total_pages, "total_count": total_count},
     }
