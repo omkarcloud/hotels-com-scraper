@@ -54,6 +54,7 @@ from urllib.parse import urlparse
 import fastjson
 
 from hotels_com.refs import DEFAULT_POS, POS, expedia_id_from_link, hotel_id_from_link, hotel_link
+from scraper_utils.values import bool_or_none as _flag
 
 # ---- generic helpers -------------------------------------------------------------
 _AMOUNT_START_RE = re.compile(r"\d[\d.,  \s]*")
@@ -760,10 +761,6 @@ def _validity(value):
     if value == "VALID":
         return None
     return value.replace("INVALID_DUE_TO_", "").lower() or None
-
-
-def _flag(value):
-    return value if isinstance(value, bool) else None
 
 
 def _valid(value):

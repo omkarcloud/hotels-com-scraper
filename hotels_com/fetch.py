@@ -100,6 +100,7 @@ import egress
 import identity_pool
 from scraper_errors import BadRequest, Blocked, NotFound, UpstreamError
 from hotels_com.refs import DEFAULT_POS, EXPEDIA_ID_RE, HOTEL_ID_RE, POS
+from scraper_utils.pages import page_title
 
 # curl_cffi impersonation targets, in the order a thread tries them: a block
 # drops the session and its replacement rides the next one. Pod probe
@@ -277,11 +278,6 @@ def _retrying(fn, pos):
                 break
             time.sleep(config.RETRY_BACKOFF * plain_failures)
     raise last
-
-
-def page_title(text):
-    match = _TITLE_RE.search(text or "")
-    return match.group(1).strip() if match else ""
 
 
 def is_challenge(text):
